@@ -194,7 +194,7 @@ function citygeo(lat, lon){
 }
 // ---------- الانتقال لصفحة التفاصيل ----------
 function GoToDetails(cityData){
-  Data(cityData, response);
+  Data(cityData);
   citygeo(selectedLat, selectedLon);
   location.href = "details.html";
 }
@@ -227,4 +227,5 @@ document.addEventListener('click', (e) => {
     render_search_icon();
     ul.innerHTML = '';
   }
+
 });
