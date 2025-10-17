@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awsoeme library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./main.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>WeatherApp</title>
+</head>
+<body>
+
+<header>
+    <section class="logo">
+        <div class="icon">
+            <i class="fa-solid fa-cloud-sun"></i> 
+        </div>
+        <span>WeatherApp</span>
+    </section>
+
+    <section class="search">
+        <div class="search-icon-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <form class="searchForm">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for a city...">
+                <ul id="results" class="results-list"></ul>
+            </div>
+        </form>
+    </section>
+</header>
+
+<!-- Selected City Banner -->
+<div class="selected-city-banner">
+    <div class="city-icon">
+        <i class="fa-solid fa-location-dot"></i>
+    </div>
+    <div class="city-details">
+        <h2 id="selectedCityName">Cairo</h2>
+        <p id="selectedCityInfo">Egypt • 30.04, 31.24</p>
+    </div>
+</div>
+
+<main>
+    <section class="weather-cards"></section>
+</main>
+
+<script src="./main.js"></script>
+</body>
+</html>

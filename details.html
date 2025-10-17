@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Details</title>
+  <!-- CSS Files -->
+   <link rel="stylesheet" href="./details.css">
+  <!-- Font-Awesome Files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+  <!-- مكتبة للخريطة التفاعلية -->
+   <!-- leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+</head>
+<body>
+  <div class="container">
+    <header>
+      <button id="backBtn">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+      <div class="header-info">
+        <h1 id="cityName">Cairo</h1>
+        <p id="dateText">Friday, October 17, 2025</p>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Main Weather Card -->
+      <div class="card weather-main">
+        <div class="weather-display">
+          <img id="weatherIcon" src="" alt="Weather Icon">
+          <div class="temp-info">
+            <h2 id="temperature">28°C</h2>
+            <p id="description">Clear Sky</p>
+          </div>
+        </div>
+
+        <div class="weather-details">
+          <div class="detail-item">
+            <i class="fa-solid fa-temperature-three-quarters"></i>
+            <div class="detail-content">
+              <div class="detail-label">Feels Like</div>
+              <div class="detail-value" id="feelsLike">30°C</div>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <i class="fa-solid fa-droplet"></i>
+            <div class="detail-content">
+              <div class="detail-label">Humidity</div>
+              <div class="detail-value" id="humidity">65%</div>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <i class="fa-solid fa-wind"></i>
+            <div class="detail-content">
+              <div class="detail-label">Wind Speed</div>
+              <div class="detail-value" id="wind">3.5 m/s</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Air Quality Card -->
+      <div class="card">
+        <h2>
+          <i class="fa-solid fa-lungs"></i>
+          Air Quality
+        </h2>
+        <div id="aqiBox" class="aqi-display">
+          <span id="aqiValue">42</span>
+          <p id="aqiText">Good</p>
+        </div>
+      </div>
+
+      <!-- Weather Map Card -->
+      <div class="card map-card">
+        <h2>
+          <i class="fa-solid fa-map"></i>
+          Weather Map
+        </h2>
+        <div id="mapContainer">
+          <img id="mapImage" src="" alt="Weather map" style="display: none;">
+          <p id="mapP" style="color: #6b7280;">Map will be loaded here</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="details.js"></script>
+</body>
+</html>
