@@ -43,6 +43,43 @@ function getWeatherIcon(main) {
 }
 
 
+// ---------- جلب احداثيات المستخدم تلقائيا ----------
+window.onload = function(){
+navigator.geolocation.getCurrentPosition(
+function (position) {
+
+const lat = position.coords.latitude;
+const lon = position.coords.longitude;
+
+selectedLat = lat;
+selectedLon = lon;
+getCityNameFromCoords(lat, lon);
+
+fetchForecastAPI();
+},
+function (error) {
+console.error('Faild', error.message);
+}
+);
+}
+
+// ---------- جلب اسم المدينة من الإحداثيات ----------
+async function getCityNameFromCoords(lat, lon) {
+try {
+const result = await fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`);
+const responses = await result.json();
+
+if (responses && responses.length > 0) {
+    const city = responses[0];
+    document.getElementById('selectedCityName').textContent = city.name;
+    document.getElementById('selectedCityInfo').textContent = `${city.country} - ${lat.toFixed(2)}, ${lon.toFixed(2)}`;
+    document.querySelector('.selected-city-banner').classList.add('active');
+}
+} catch (error) {
+console.error( error);
+}
+}
+
 // ---------- دوال مساعدة ----------
 function getCity() {
   return searchInput.value.trim();
@@ -227,5 +264,4 @@ document.addEventListener('click', (e) => {
     render_search_icon();
     ul.innerHTML = '';
   }
-
 });
