@@ -45,6 +45,13 @@ function getWeatherIcon(main) {
 
 // ---------- جلب احداثيات المستخدم تلقائيا ----------
 window.onload = function(){
+
+// المتصفح لا يدعم تحديد الموقع
+if (!navigator.geolocation) {
+alert("Browser does not support geolocation");
+return;
+}
+
 navigator.geolocation.getCurrentPosition(
 function (position) {
 
@@ -58,7 +65,19 @@ getCityNameFromCoords(lat, lon);
 fetchForecastAPI();
 },
 function (error) {
-console.error('Faild', error.message);
+switch (error.code) {
+case error.PERMISSION_DENIED:
+  alert("Location permission denied. Please search manually.");
+  break;
+case error.POSITION_UNAVAILABLE:
+  alert("Location information is unavailable.");
+  break;
+case error.TIMEOUT:
+  alert("Location request timed out.");
+  break;
+default:
+  alert("An unknown error occurred while retrieving location.");
+}
 }
 );
 }
